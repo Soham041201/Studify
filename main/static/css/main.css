@@ -17,8 +17,10 @@ body{
     left:0;
     border-radius: 2rem;
     margin: 8px;
+
  
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -26,8 +28,10 @@ a{
 .side-nav li{
     list-style: none;
     padding-right: 1.1rem;
-    margin:3rem 0rem
+    margin:3rem 0rem;
+    list-style:none;
 }
+
 .fa-lightbulb{
     width: 10px;
     font-size: 80px;
@@ -84,15 +88,30 @@ i{
     display: block;
     white-space: nowrap;
     text-align: center;
-    transition: 8s;
+    transition: 8s ease;
     opacity: 8;
+}
+.menu{
+    display: none;
+}
+.side-nav-no
+{
+    transform: translateX(-2rem);
+    transition:0.4s;
+    display: none;
+
+} 
+.transition{
+    display: none;
 }
 @media  screen and (max-width:700px) {
     i{
         padding-right:8rem;
     }
-    .side-nav{
-        display: none;
-    }
     
+    .menu{
+        display: block;
+        width:40px;
+        padding: 1rem;
+    }
 }
