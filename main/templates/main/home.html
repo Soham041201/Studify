@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% load static %}
+<html>
+
+<head>
+    
+    <title>{% block title %}Home{% endblock %}</title>
+    
+</head>
+<style>
+    p{
+        display: none;
+    }
+</style>
+
+<body>
+ 
+    {% block container %}
+    <p><b><strong>Home Page</strong></b></p>
+    
+    {% endblock %}
+</body>
+
+</html>

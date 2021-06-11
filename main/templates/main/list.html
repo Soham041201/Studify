@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+{% load static %}
+<html>
+
+<head>
+    <title>{% block title %}List{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+   {% block container %}
+   <link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}">
+
+    <div class="main-container">
+        <div>
+            {{name}}
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <ul>
+                    {% for item in ls.item_set.all %}
+                    {% if item.complete == True %}
+                    <li><input type="checkbox" value="clicked" name="c{{item.id}}" checked>{{item.text}}</li>
+                    {% else %}
+                    <li><input type="checkbox" value="clicked" name="c{{item.id}}">{{item.text}}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <button type="submit" name="save" value="save">Save</button>
+                <input type="text" name="new">
+                <button types="submit" name="newItem" value="newItem">Add Item</button>
+
+            </form>
+            <p>{{ls.id}}</p>
+        </div>
+    </div>
+   
+    {% endblock %}
+</body>
+
+</html>
