@@ -10,11 +10,12 @@
     <title>{% block title %}Create an account{% endblock %}</title>
 </head>
 <body>
+    {% load crispy_forms_tags %}
     {% block container %}
 <link rel="stylesheet" type="text/css" href="{% static '/css/register.css' %}">
 <form method="POST" class="form-register">
     {% csrf_token %}
-    {{form}}
+    {{form|crispy}}
     <button type="submit" class="button-register">Sign Up</button>
 </form>
     {% endblock %}
