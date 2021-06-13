@@ -118,8 +118,8 @@ i{
     
 }
 .transition2{
-    transform: translateX(5rem);
-    transition: 0.2s;
+    transform: translateX(0rem);
+    transition: 0.8s;
     opacity: 1;
     
 }

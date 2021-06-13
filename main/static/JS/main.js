@@ -7,13 +7,25 @@ dropDown.addEventListener("click", (event) => {
                 SideNav.classList.toggle("transition1");
 
                 SideNav.addEventListener("transitionend", () => {
-                    SideNav.style.display="none";
+                    SideNav.classList.remove("side-nav");
+                    SideNav.classList.remove("transition1");
+                    SideNav.style.display="none"
                 });
                 
                
             }
-            if(SideNav.style.display=="none")
+            else{
+            if(!SideNav.classList.contains("side-nav"))
             {
-                    SideNav.style.display="block";
+
+                SideNav.classList.add("transition2");
+                SideNav.addEventListener("transitionend", () => {
+                    
+                });
+                SideNav.style.display="block";
+                    SideNav.classList.add("side-nav");
+                SideNav.classList.remove("transition2");
+
             }
+        }
         });
