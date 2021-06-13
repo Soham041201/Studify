@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 :root{
-    --black:#1b1717;
-    --light-blue: #A8D0E6;
+    --primary1:#eeeeee;
+    --primary2: #00adb5;
     --dark-red:#630000;
-    --red:#810000;
-    --skin:#eeebdd;
+    --gray:#393e46;
+    --accent:#222831;
 }
+
 body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: x-large;
-    background: var(--skin);
+    
 }
 .side-nav{
     width:140px;
     height: 100vh;
-    background:linear-gradient(120deg,var(--black) 100%,var(--red));
+    background:linear-gradient(120deg,var(--primary2) 100%,var(--gray));
     color:white;
     top:0;
     left:0;
@@ -91,7 +92,7 @@ i{
     margin-left: -34px;
     padding: 0.8rem;
     border-radius: 2rem 0rem 0rem 2rem;
-    color: #2541b2;
+    color: var(--accent);
     display: block;
     white-space: nowrap;
     text-align: center;
