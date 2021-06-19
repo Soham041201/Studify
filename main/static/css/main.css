@@ -18,7 +18,7 @@ body{
 }
 .side-nav{
     width:140px;
-    height: 100vh;
+    height: 140vh;
     background:linear-gradient(120deg,var(--primary2) 100%,var(--gray));
     color:white;
     top:0;
@@ -113,14 +113,15 @@ i{
 } 
 .transition1{
     transform: translateX(-7rem);
-    transition: 0.8s;
+    transition: all 0.8s ease-in-out ;
     opacity: 0.2;
     
 }
 .transition2{
-    transform: translateX(0rem);
+    transform: translateX(10rem);
     transition: 0.8s;
-    opacity: 1;
+    opacity: 0.2;
+    display: "";
     
 }
 

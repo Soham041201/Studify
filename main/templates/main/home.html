@@ -16,7 +16,9 @@
 <body>
  
     {% block container %}
+    {% if user.is_authenticated %}
     <p><b><strong>Home Page</strong></b></p>
+    {% endif %}
     
     {% endblock %}
 </body>

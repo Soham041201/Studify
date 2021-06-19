@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+{% block title %} View List {% endblock %}
+<style>
+ ul {
+    list-style-type: none;
+ }
+</style>
+
+{% block container %}
+<ul class="todolist">
+    {% for td in user.todolist.all %}
+       <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a></li>
+    {% endfor %}
+</ul>
+    <!-- <h4>{{user.todolist.all}}</h4> -->
+{% endblock %}

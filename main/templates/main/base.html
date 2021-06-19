@@ -15,9 +15,10 @@
 
 <body>
     <div class="dropdown">
-    <img src="{% static 'images/menu.png' %}" class="menu">
+    <img src="{% static 'images/menu.png' %}" class="menu" >
 </div>
     <div style="display: flex;">
+        {% if user.is_authenticated %}
         <div class="side-nav">
             <ul>
 
@@ -34,12 +35,51 @@
                     <!-- <span class="create">Create</span> -->
                 </div>
                 <div class="tooltip">
-                    <li><a href="/8"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
+                    <li><a href="/view"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
                 </div>
-
+                {% if user.is_authenticated %}
+                <div class="tooltip">
+                    <li><a href="/logout"><i id="Logout" class="fas fa-sign-in-alt tool-hover"></i></a></li>
+                </div>
+                {% endif %}
                 
             </ul>
         </div>
+        {% else %}
+        <div class="side-nav">
+            <ul>
+
+                <li><i class="far fa-lightbulb"></i></li>
+                <div class="tooltip">
+                    <li><a href="/register"><i id="Signup" class="fas fa-user-plus tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/login"><i id="Login" class="fas fa-sign-in-alt tool-hover"></i></a></li>
+                </div>
+
+                <div class="tooltip">
+                    <li><a href="/"><i id="Home" class="fas fa-home tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/register"><i id="Profile" class="fas fa-user tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/register/"><i id="Create List" class="fas fa-pencil-alt tool-hover"></i></a></li>
+                    <!-- <span class="create">Create</span> -->
+                </div>
+                <div class="tooltip">
+                    <li><a href="/register"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="tooltip">
+                    <li><a href="/logout"><i id="Logout" class="fas fa-sign-in-alt tool-hover"></i></a></li>
+                </div>
+                {% endif %}
+                
+                
+            </ul>
+        </div>
+        {% endif %}
         {% block container %}
 
         {% endblock %}
