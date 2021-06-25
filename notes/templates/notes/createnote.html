@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Create{% endblock %}
+{% block container %}
+<h1>Create Note: </h1>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title of the Note">
+    <input type="file" name="pdf">
+    <button type="submit">Add Note</button>
+</form>
+
+{% endblock %}
+

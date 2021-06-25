@@ -1,11 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class Pelcon(models.Model):
-    name = models.CharField(max_length=100)
-    owner = models.CharField(max_length=100)
-    pdf = models.FileField(upload_to='store/pdfs/')
-    cover = models.ImageField(upload_to='store/covers/')
 
+class Note(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=512)
+    pdf = models.FileField(upload_to="pdf")
 
     def __str__(self):
-        return self.name
+        return f'{self.user.username}\'s Notes'

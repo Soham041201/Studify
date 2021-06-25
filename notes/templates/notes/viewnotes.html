@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Create{% endblock %}
+{% block container %}
+<p>Notes: </p>
+
+<br>
+<ul>
+    <li><a href="{% url 'createnote' %}">Create Note</a></li>
+{% for note in notes %}
+<li>{{note.title}}: <a href="{{note.pdf.url}}" download>Download</a></li>
+{% endfor %}
+</ul>
+
+<style type="text/css">
+    li a{
+        color: teal;
+    }
+</style>
+
+{% endblock %}
+

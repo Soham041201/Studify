@@ -18,6 +18,7 @@
     {% block container %}
     {% if user.is_authenticated %}
     <p><b><strong>Home Page</strong></b></p>
+    <a style="color: teal" href="{% url 'viewnote' %}">Notes</a>
     {% endif %}
     
     {% endblock %}
