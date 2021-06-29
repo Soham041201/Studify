@@ -1,16 +1,31 @@
 {% extends "main/base.html" %}
 {% block title %} View List {% endblock %}
+{% load static %}
 <style>
- ul {
-    list-style-type: none;
- }
+    ul {
+        list-style-type: none;
+    }
 </style>
 
 {% block container %}
+{% if user.todolist.all.count %}
 <ul class="todolist">
     {% for td in user.todolist.all %}
-       <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a></li>
+    <div class="listitem" style="display: flex;">
+        <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a></li>
+        <button class="delete">delete</button>
+    </div>
+
     {% endfor %}
 </ul>
-    <!-- <h4>{{user.todolist.all}}</h4> -->
+{% else %}
+
+
+<div>
+    you currently have no list, make some <a href="/create">here</a>.
+</div>
+{% endif %}
+<script src="{% static 'JS/view.js' %}"></script>
+
+<!-- <h4>{{user.todolist.all}}</h4> -->
 {% endblock %}

@@ -11,14 +11,20 @@
     p{
         display: none;
     }
+   
 </style>
 
 <body>
  
     {% block container %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% if user.is_authenticated %}
-    <p><b><strong>Home Page</strong></b></p>
-    <a style="color: teal" href="{% url 'viewnote' %}">Notes</a>
+    <div>
+    <br><br>
+    <div class="name">Welcome, {{user.username}}</div>
+    </div>
+    {% else %}
+    <div><a href="/register/">signup</a> or <a href="/login">login</a> to continue</div>
     {% endif %}
     
     {% endblock %}

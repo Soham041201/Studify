@@ -1,0 +1,6 @@
+h4{
+    background:linear-gradient(#222,#000);
+    max-height: 40px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -15,14 +15,13 @@
 
 <body>
     <div class="dropdown">
-    <img src="{% static 'images/menu.png' %}" class="menu" >
+    <img src="{% static 'css/images/menu.png' %}" class="menu" >
 </div>
+<a href="/"><img class="logo" src="{% static 'css/images/logo.jpeg' %}"></a>
     <div style="display: flex;">
         {% if user.is_authenticated %}
         <div class="side-nav">
-            <ul>
-
-                <li><i class="far fa-lightbulb"></i></li>
+            <ul> 
 
                 <div class="tooltip">
                     <li><a href="/"><i id="Home" class="fas fa-home tool-hover"></i></a></li>
@@ -37,6 +36,9 @@
                 <div class="tooltip">
                     <li><a href="/view"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
                 </div>
+                <div class="tooltip">
+                    <li><a href="/notes"><i id="Notes" class="fas fa-file-pdf tool-hover"></i></a></li>
+                </div>
                 {% if user.is_authenticated %}
                 <div class="tooltip">
                     <li><a href="/logout"><i id="Logout" class="fas fa-sign-in-alt tool-hover"></i></a></li>
@@ -48,8 +50,6 @@
         {% else %}
         <div class="side-nav">
             <ul>
-
-                <li><i class="far fa-lightbulb"></i></li>
                 <div class="tooltip">
                     <li><a href="/register"><i id="Signup" class="fas fa-user-plus tool-hover"></i></a></li>
                 </div>
@@ -69,6 +69,9 @@
                 </div>
                 <div class="tooltip">
                     <li><a href="/register"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/notes"><i id="Notes" class="fas fa-file-pdf tool-hover"></i></a></li>
                 </div>
                 {% if user.is_authenticated %}
                 <div class="tooltip">

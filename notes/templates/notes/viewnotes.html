@@ -1,22 +1,24 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block title %}Create{% endblock %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 {% block container %}
-<p>Notes: </p>
+<link rel="stylesheet" href="{% static 'css/viewnotes.css' %}">
+<h4>Notes: </h4>
 
 <br>
 <ul>
-    <li><a href="{% url 'createnote' %}">Create Note</a></li>
-{% for note in notes %}
-<li>{{note.title}}: <a href="{{note.pdf.url}}" download>Download</a></li>
+    <li><a href="{% url 'createnote' %}" class="notes">Create Note</a></li>
+{% for note in user.usernotes.all %}
+<li>{{note.title}}: <a href="{{note.pdf.url}}" class="notes" download>Download</a></li>
 {% endfor %}
 </ul>
 
 <style type="text/css">
-    li a{
+    li .notes{
         color: teal;
     }
-</style>
+</style> 
 
 {% endblock %}
 

@@ -16,6 +16,8 @@
             {{name}}
             <form method="POST" action="#">
                 {% csrf_token %}
+                
+
                 <ul>
                     {% for item in ls.item_set.all %}
                     {% if item.complete == True %}
@@ -31,7 +33,6 @@
                 <button types="submit" name="newItem" value="newItem">Add Item</button>
 
             </form>
-            <p>{{ls.id}}</p>
         </div>
     </div>
    

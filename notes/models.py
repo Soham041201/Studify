@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Note(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name="usernotes")
     title = models.CharField(max_length=512)
     pdf = models.FileField(upload_to="pdf")
 

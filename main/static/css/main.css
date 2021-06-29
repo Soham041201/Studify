@@ -7,72 +7,49 @@
     --gray:#393e46;
     --accent:#222831;
 }
-
+html{
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    max-height: 100vh;
+}
 body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: x-large;
-    
 }
 .side-nav{
     width:140px;
-    height: 140vh;
-    background:linear-gradient(120deg,var(--primary2) 100%,var(--gray));
+    max-height:140vh;
+    background:linear-gradient(120deg,#e76f51 40%,#f4a261);
     color:white;
     top:0;
     left:0;
     border-radius: 2rem;
     margin: 8px;
-
- 
 }
 
-a{
+i{
     text-decoration: none;
     color: white;
+    
 }
 .side-nav li{
     list-style: none;
     padding-right: 1.1rem;
     margin:3rem 0rem;
     list-style:none;
+    overflow: hidden;
 }
 
 .fa-lightbulb{
     width: 10px;
     font-size: 80px;
-    padding-left: 0.5rem;
+    padding-left: -50%;
 }
-/* .create-hover{
-    visibility: visible;
-    text-align: center;
-    cursor: pointer;
-    padding: 0px 22px;
-    position: relative;
-    display: flex;
-    margin-bottom: -50%;
 
-}
-.create-hover .create {
-    background: #2541b2;
-    border-radius: 2rem;
-    visibility:hidden;
-    z-index: 1;
-    color: white;
-    position: absolute;
-    padding: 0.4rem;
-    margin: 0rem -2rem;
-
-
-}
-@media (hover: hover){
-.create-hover:hover .create{
-    visibility: visible;
-}
-    
-} */
 i{
     padding:1rem 0rem
 }
@@ -106,26 +83,36 @@ i{
     height: 40px;
     cursor: pointer;
 }
-.side-nav-no
-{
-    display: none;
+.logo{
+    width:80px;
+    height: 80px;
+    padding: 2rem;
+    border-radius: 2rem;
+    position: sticky;
+    top:0%;
+    right:0%;
+    float: right;
+    cursor: pointer;
+}
+.name{
+    background-color: rgba(223, 141, 120, 0.4);
+    width: auto;
+    height: auto;
+    padding:1rem;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    margin-top: -20%;
+    z-index: 100;
+}
 
-} 
-.transition1{
-    transform: translateX(-7rem);
-    transition: all 0.8s ease-in-out ;
-    opacity: 0.2;
-    
-}
-.transition2{
-    transform: translateX(10rem);
-    transition: 0.8s;
-    opacity: 0.2;
-    display: "";
-    
-}
+
 
 @media  screen and (max-width:700px) {
+    html{
+        background-image:none;
+        background: white;
+    }
     body{
         font-size: 20px;
     }
@@ -150,4 +137,17 @@ i{
         margin-top: 0%;
         /* z-index: -1; */
     }
+    .remove{
+        display: none;
+    }
+    .logo{
+        margin-top:-80%;
+        margin-right: -15%;
+        padding-top: -20%;
+        display: none;
+    }
+    .name{
+        margin-top: -25%;
+    }
+    
 }
