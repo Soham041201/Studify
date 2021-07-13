@@ -149,5 +149,8 @@ i{
     .name{
         margin-top: -25%;
     }
+    .visible{
+        visibility:hidden;
+    }
     
 }

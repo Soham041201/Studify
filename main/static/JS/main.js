@@ -10,9 +10,13 @@ dropDown.addEventListener("click", () => {
             item.classList.remove("remove");
         }
         SideNav.style.maxWidth = "200px";
-        SideNav.style.transition = "2s";
+        SideNav.style.transition = "1s";
+        
         SideNav.addEventListener("transitionend", () => {
+            
             for (item of logos) {
+            item.classList.remove("visible");
+
                 item.classList.remove("remove");
             }
         });
@@ -22,9 +26,14 @@ dropDown.addEventListener("click", () => {
     } else {
         SideNav.style.maxWidth = "0px";
         SideNav.style.transition = "2s";
-        
+        ;
+        for(item of logos)
+        {
+            item.classList.add("visible");
+        }
         SideNav.addEventListener("transitionend", () => {
             for (item of logos) {
+                item.classList.add("visible");
                 item.classList.add("remove");
             }
         });

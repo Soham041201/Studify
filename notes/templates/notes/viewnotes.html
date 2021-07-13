@@ -10,7 +10,9 @@
 <ul>
     <li><a href="{% url 'createnote' %}" class="notes">Create Note</a></li>
 {% for note in user.usernotes.all %}
-<li>{{note.title}}: <a href="{{note.pdf.url}}" class="notes" download>Download</a></li>
+<li>{{note.title}}: <a href="{{note.pdf.url}}" class="notes" download>Download</a>
+<button class="btn-delete" type="submit">Delete</button>
+</li>
 {% endfor %}
 </ul>
 
