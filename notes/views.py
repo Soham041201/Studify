@@ -12,3 +12,11 @@ def createnote(request):
         return redirect('viewnote')
 
     return render(request, 'notes/createnote.html')
+
+def deletenote(request, id):
+    note = Note.objects.get(id=id)
+
+    if note.user == request.user:
+        note.delete()
+
+    return redirect('viewnote')

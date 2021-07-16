@@ -11,7 +11,12 @@
     <li><a href="{% url 'createnote' %}" class="notes">Create Note</a></li>
 {% for note in user.usernotes.all %}
 <li>{{note.title}}: <a href="{{note.pdf.url}}" class="notes" download>Download</a>
+
+<form action="{% url 'deletenote' note.id %}" method="POST">
+    {% csrf_token %}
 <button class="btn-delete" type="submit">Delete</button>
+</form>
+
 </li>
 {% endfor %}
 </ul>
