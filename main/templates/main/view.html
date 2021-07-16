@@ -13,7 +13,7 @@
     {% for td in user.todolist.all %}
     <div class="listitem" style="display: flex;">
         <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a></li>
-        <button class="delete">delete</button>
+
     </div>
 
     {% endfor %}
