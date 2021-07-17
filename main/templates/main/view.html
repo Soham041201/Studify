@@ -12,8 +12,7 @@
 <ul class="todolist">
     {% for td in user.todolist.all %}
     <div class="listitem" style="display: flex;">
-        <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a></li>
-
+        <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a><a href="{% url 'deletelist' td.id %}">Delete</a></li>
     </div>
 
     {% endfor %}

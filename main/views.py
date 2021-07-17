@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import ToDoList, Item
 from .forms import createNewList
@@ -47,4 +47,11 @@ def create(response):
 
 def view(response):
     return render(response,"main/view.html",{})
+
+
+def deletelist(request, id):
+    if request.user == ToDoList.objects.get(id=id).user:
+        ToDoList.objects.get(id=id).delete()
+
+    return redirect('view')
 
