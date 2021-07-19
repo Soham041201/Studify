@@ -2,22 +2,121 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>{% block title %}Create{% endblock %}</title>
+
 </head>
+
 <body>
     {% block container %}
+    <style>
+        * {
+            /* box-sizing: border-box; */
+            /* overflow: hidden; */
+        }
 
-<form action="/create/" method="post" >
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" name="save">create new</button>
-</form>
-{% endblock %}
+        form {
+            background: linear-gradient(45deg, rgb(223, 72, 72), rgb(233, 114, 114));
+            max-height: 10vh;
+            border-radius: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            margin-left: 0rem;
+            padding: 1rem;
+            color: white;
+            font-weight: bold;
+
+        }
+
+       
+
+        button {
+            border: none;
+            white-space: nowrap;
+            padding: 0.4rem;
+            margin: 1rem;
+            border-radius: 1rem;
+            font-weight: 400;
+            background: rgb(245, 236, 236);
+            cursor: pointer;
+        }
+        button:hover{
+            box-shadow: 5px 6px rgb(122, 62, 62);
+        }
+        .header {
+            height: fit-content;
+            display: block;
+            flex-shrink: 0;
+
+        }
+        .container .header
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bolder;
+
+        }
+        .container{
+            margin-left: 4rem;
+            margin-top: 2rem;
+        }
+        .header2{
+            background: rgb(236, 204, 236);
+            height: auto;
+            width: auto;
+            padding: 1rem;
+            border-radius:2rem;
+            box-shadow: 2px 5px 5px violet;
+
+        }
+        @media screen and (max-width:900px) {
+            form {
+                width: 80%;
+                margin-left: 1rem;
+            }
+            .container{
+                margin-left:0rem ;
+            }
+        }
+    </style>
+
+    <br>
+    <div class="container">
+        <div class="header">
+            <p>Make your specific ToDo-List: </p>
+        </div>
+            <form action="/create/" method="post">
+
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" name="save">create new</button>
+            </form>
+        <div class="header header2" style="margin-top: 2rem;"> 
+            Create some reminders so you are never late :)
+        </div>
+        
+    </div>
+    <script>
+        const texts=["help your self using Studify","make list to be organized",
+        "Studify always gets your back","Its great to be never late",
+        "manage your time, manage your life","We are here so that you can study stress free",
+    "Concentrate on Studies, we will lookout for deadlines and notes"];
+        const quote=document.querySelector(".header2");
+        const length=texts.length;
+        document.addEventListener("DOMContentLoaded",function()
+        {
+           quote.innerText=texts[(Math.floor(Math.random()*10)%length)];
+        })
+    </script>
+    {% endblock %}
 </body>
-</html>
 
+</html>
