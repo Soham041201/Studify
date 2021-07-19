@@ -1,12 +1,37 @@
 {% extends "main/base.html" %}
 {% block title %}Login{% endblock %}
 {% block container %}
-
+<style>
+    .main-cont{
+        margin-left: 4rem;
+        margin-top: 8rem;
+        
+    }
+    form{
+        background-color: rgb(6, 38, 65);
+        border-radius: 2rem;
+        color: white;
+        padding: 2rem;
+        margin: 1rem;
+        height: 28vh;
+        opacity: 0.9;
+        box-shadow:4px 5px 5px rgb(23, 80, 126);
+    }
+    button{
+        border: 0;
+        padding: 0.2rem;
+        font-size: 15px;
+        cursor: pointer;
+}
+</style>
+<div class="main-cont">
+    <h3>Login</h3>
 {% load crispy_forms_tags %}
 <form method="POST">
     {% csrf_token %}
     {{form|crispy}}
     <button type="submit">Login</button>
 </form>
+</div>
 
 {% endblock %}

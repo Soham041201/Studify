@@ -2,14 +2,38 @@
 {% load static %}
 {% block title %}Create{% endblock %}
 {% block container %}
+
+<style>
+    form{
+        background-color: rgb(230, 141, 125);
+        padding: 1rem;
+        box-shadow: 4px 5px 5px rgb(218, 72, 47);
+        border-radius: 2rem;
+    }
+    form *{
+        border-radius: 1rem;
+        border: none;
+        margin: 0.4rem;
+    }
+    .input{
+        padding:0.5rem;
+    }
+    @media screen and (max-width: 900px) {
+        form{
+        margin-right: 1rem;
+        }
+    }
+</style>
+<div class="main-one">
 <h1>Create Note: </h1>
 
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="text" name="title" placeholder="Title of the Note">
+    <input type="text" name="title" class="input" placeholder="Title of the Note">
     <input type="file" name="pdf">
     <button type="submit">Add Note</button>
 </form>
+</div>
 
 {% endblock %}
 
