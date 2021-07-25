@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from register import views as v
 
 urlpatterns = [
+    path('', include('social_django.urls', namespace='social')),
     path('admin/', admin.site.urls),
     path('', include("main.urls")),
     path('notes/', include("notes.urls")),

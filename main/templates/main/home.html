@@ -24,7 +24,7 @@
     <div class="name">Welcome, {{user.username}}</div>
     </div>
     {% else %}
-    <div><a href="/register/">signup</a> or <a href="/login">login</a> to continue</div>
+    <div><a href="/register/">signup</a> or <a href="/login">login</a> or <a href="{% url 'social:begin' 'google-oauth2' %}">google login</a> to continue</div>
     {% endif %}
     
     {% endblock %}

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'main.apps.MainConfig',
     'notes.apps.NotesConfig',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -129,11 +130,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT="static"
-
+LOGIN_URL = '/auth/login/google-oauth2/'
 
 CRISPY_TEMPLATE_PACL="bootstrap4"
 LOGIN_REDIRECT_URL="/"
 LOGOUT_REDIRECT_URL="/"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '800230888356-o5cck5it6vg9tqt2ilhisn1qr3552qdl.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 't9u1mOVtmlmauiDJyJV5ztT6'
 
 
 STATICFILES_DIRS=[
@@ -143,3 +146,9 @@ STATICFILES_DIRS=[
 
 MEDIA_ROOT = "media/"
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
