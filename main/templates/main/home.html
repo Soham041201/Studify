@@ -3,30 +3,67 @@
 <html>
 
 <head>
-    
+
     <title>{% block title %}Home{% endblock %}</title>
-    
+
 </head>
-<style>
-    p{
-        display: none;
-    }
-   
-</style>
+
 
 <body>
- 
+
     {% block container %}
+
+    <style>
+        .container{
+            background: rgb(240, 136, 136);
+            height: 18rem;
+            margin: 1rem;
+            opacity: 0.8;
+            text-align: center;
+            margin: 2rem;
+            padding: 0.5rem;
+            border-radius: 2rem;
+        }
+        .container div a{
+            color: azure;
+            padding: 1rem;
+            font-size: 25px;
+            color: black;
+            
+        }
+        .google a{
+            padding: 0;
+            border-radius: 2rem;
+            background: white;
+        }
+        .google{
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2rem;
+            padding: 0.2rem 1rem;
+        }
+        .google img{
+            width: 25px;
+            height: 25px;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% if user.is_authenticated %}
     <div>
-    <br><br>
-    <div class="name">Welcome, {{user.username}}</div>
+        <br><br>
+        <div class="name">Welcome, {{user.username}}</div>
     </div>
     {% else %}
-    <div><a href="/register/">signup</a> or <a href="/login">login</a> or <a href="{% url 'social:begin' 'google-oauth2' %}">google login</a> to continue</div>
+    <div class="container">
+        <div><a href="/register/">signup</a></div>
+        or <div><a href="/login">login</a></div>
+        or <div class="google"><img src="{% static 'googlelogin.png' %}" alt="">
+            <a  href="{% url 'social:begin' 'google-oauth2' %}">google login</a></div> to continue
+    </div>
     {% endif %}
-    
+
     {% endblock %}
 </body>
 
