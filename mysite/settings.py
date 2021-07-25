@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'notes.apps.NotesConfig',
     'social_django',
+    'studifyprofile.apps.StudifyprofileConfig',
 ]
 
 MIDDLEWARE = [
