@@ -26,6 +26,7 @@ urlpatterns = [
     path('notes/', include("notes.urls")),
     path('register/',v.register,name="register"),
     path('',include("django.contrib.auth.urls")),
+    path('',include("studifyprofile.urls")),
 ]
 
 if settings.DEBUG:
