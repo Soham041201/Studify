@@ -14,7 +14,7 @@
     {% block container %}
 
     <style>
-        .container{
+        .container {
             background: rgb(240, 136, 136);
             height: 18rem;
             margin: 1rem;
@@ -24,19 +24,43 @@
             padding: 0.5rem;
             border-radius: 2rem;
         }
-        .container div a{
+
+        .main-content {
+            margin-top: 10rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .name {
+            max-width: 22rem;
+            transform: translateY(-200%);
+            transition: all 0.5s ease-in-out;
+        }
+        .name.name-active{
+            transform: translateY(0%);   
+        }
+        .text {
+            max-width: 30rem;
+            max-height: 20vh;
+            padding: 2rem;
+        }
+
+        .container div a {
             color: azure;
             padding: 1rem;
             font-size: 25px;
             color: black;
-            
+
         }
-        .google a{
+
+        .google a {
             padding: 0;
             border-radius: 2rem;
             background: white;
         }
-        .google{
+
+        .google {
             background: white;
             display: flex;
             align-items: center;
@@ -44,27 +68,60 @@
             border-radius: 2rem;
             padding: 0.2rem 1rem;
         }
-        .google img{
+
+        .google img {
             width: 25px;
             height: 25px;
+        }
+
+        .fa-arrow-left {
+            font-size: 5rem;
+            color: coral;
+            transition: all 1s ease;
+        }
+
+        .fa-arrow-left.active {
+            transform: translateX(-2rem);
+            transition: all 1s ease;
         }
     </style>
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% if user.is_authenticated %}
-    <div>
+    <div class="main-content">
         <br><br>
         <div class="name">Welcome, {{user.username}}</div>
+        <div class="text">
+            Hello {{user.username}}, Welcome to Studify!
+            we at Studify wants to help our student community to be more precise with their time and  managing it in a productive way
+            
+        </div>
+        <div class="arrow"><i class="fas fa-arrow-left"></i></div>
+        <div class="under-text">
+            Go through the website from here
+        </div>
     </div>
     {% else %}
     <div class="container">
         <div><a href="/register/">signup</a></div>
         or <div><a href="/login">login</a></div>
         or <div class="google"><img src="{% static 'googlelogin.png' %}" alt="">
-            <a  href="{% url 'social:begin' 'google-oauth2' %}">google login</a></div> to continue
+            <a href="{% url 'social:begin' 'google-oauth2' %}">google login</a></div> to continue
     </div>
     {% endif %}
-
+    <script>
+        const arrow = document.querySelector(".fa-arrow-left");
+        const name=document.querySelector(".name");
+            setInterval(() => {
+                        arrow.classList.toggle("active");
+                    },800);
+        window.addEventListener("DOMContentLoaded",()=>{
+            setTimeout(()=>{
+                name.classList.add("name-active");
+            },800);
+        })
+    </script>
     {% endblock %}
+   
 </body>
 
 </html>
