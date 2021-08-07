@@ -1,6 +1,7 @@
 const dropDown = document.querySelector(".dropdown");
 const SideNav = document.querySelector(".side-nav");
 const logos = document.querySelectorAll(".tooltip");
+const logo=document.querySelector(".logo");
 
 SideNav.style.maxWidth = "200px";
 dropDown.addEventListener("click", () => {
@@ -39,3 +40,9 @@ dropDown.addEventListener("click", () => {
         });
     }
 });
+window.addEventListener("DOMContentLoaded",()=>{
+    setTimeout(()=>{
+        SideNav.classList.add("sidenav-active");
+        logo.classList.add("logo-active");
+    },400)
+})

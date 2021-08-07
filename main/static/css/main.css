@@ -29,6 +29,8 @@ body{
     left:0;
     border-radius: 2rem;
     margin: 8px;
+    transform: translateX(-110%);
+    transition: 0.8s ease-in-out;
 }
 
 i{
@@ -43,7 +45,10 @@ i{
     list-style:none;
     overflow: hidden;
 }
-
+.side-nav.sidenav-active{
+    transform: translateX(0%);
+    
+}
 .fa-lightbulb{
     width: 10px;
     font-size: 80px;
@@ -93,6 +98,12 @@ i{
     right:0%;
     float: right;
     cursor: pointer;
+    transform: scale(0);
+    transition: 0.4s ease-in-out;
+    transform-origin:center;
+}
+.logo-active{
+    transform: scale(1);
 }
 .name{
     background-color: rgba(223, 141, 120, 0.4);

@@ -45,7 +45,6 @@
             max-height: 20vh;
             padding: 2rem;
         }
-
         .container div a {
             color: azure;
             padding: 1rem;
@@ -68,7 +67,7 @@
             border-radius: 2rem;
             padding: 0.2rem 1rem;
         }
-
+        
         .google img {
             width: 25px;
             height: 25px;
@@ -91,7 +90,7 @@
         <br><br>
         <div class="name">Welcome, {{user.username}}</div>
         <div class="text">
-            Hello {{user.username}}, Welcome to Studify!
+            Hello <span>{{user.username}}</span>, Welcome to Studify!
             we at Studify wants to help our student community to be more precise with their time and  managing it in a productive way
             
         </div>
@@ -117,6 +116,7 @@
         window.addEventListener("DOMContentLoaded",()=>{
             setTimeout(()=>{
                 name.classList.add("name-active");
+
             },800);
         })
     </script>
