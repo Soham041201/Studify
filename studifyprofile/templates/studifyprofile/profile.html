@@ -1,0 +1,98 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
+<style>
+  .btn-outline {
+    border: none;
+    background: rgb(206, 138, 106);
+    padding: 1rem;
+    margin: rem;
+    border-radius: 2rem;
+  }
+
+  .form-group {
+    width: 35rem;
+    padding: 1rem;
+  }
+
+  .account-img {
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: 1rem;
+    padding: 0.2rem;
+  }
+
+  .content-section {
+    margin-left: 1rem;
+  }
+
+  .s1,.s2 {
+    width: 10rem;
+    height: 0.5rem;
+    background: linear-gradient(90deg,blue 90%,red);
+    border-radius: 1rem;
+    margin-top: 0rem;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 0.5s;
+
+  }
+  .s2 {
+    margin-top: rem;
+  }
+
+  .account-heading,
+  .text-secondary {
+    cursor: pointer;
+  }
+
+  .account-heading:hover .s1{
+    opacity: 1;
+    transition: 0.5s;
+    transform: translateX(0%);
+  }
+  .text-secondary:hover .s2{
+    opacity: 1;
+    transition: 0.5s;
+    transform: translateX(0%);
+  }
+  
+
+  @media screen and (max-width:800px) {
+    .form-group {
+      max-width: 10rem;
+    }
+
+    .content-section {
+      max-width: 20rem;
+      margin-left: 3rem
+    }
+  }
+</style>
+<div class="content-section">
+  <div class="media">
+    <img class="account-img" src="{{ user.profile.image.url }}">
+    <div class="media-body">
+      <h4 class="account-heading">username: {{ user.username }}<div class="slider s1"></div>
+      </h4>
+
+      <h4 class="text-secondary">useremail: {{ user.email }}<div class="slider s2"></div>
+      </h4>
+
+
+    </div>
+  </div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom">Profile Info</legend>
+      {{ u_form|crispy }}
+      {{ p_form|crispy }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn-outline" type="submit">Update Profile</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

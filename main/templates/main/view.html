@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% block title %} View List {% endblock %}
+{% load static %}
+
+
+{% block container %}
+<style>
+    .todolist {
+        list-style-type: none;
+        background: rgb(168, 193, 194);
+        box-shadow: 2px 5px 2px rgb(157, 229, 231);
+        margin-top: 2rem;
+        border-radius:2rem;
+        height: auto;
+        padding:2rem
+        
+    }
+    .no-list
+    {
+        list-style-type: none;
+        background: rgb(168, 193, 194);
+        box-shadow: 2px 5px 2px rgb(157, 229, 231);
+        margin-top: 2rem;
+        border-radius:2rem;
+        height: 4rem;
+        padding:2rem;
+        padding-top:0 ;
+
+    }
+    .container-ul{
+        margin-left: 2rem;
+    }
+    .todolist li{
+        background: rgb(131, 131, 209);
+        margin: 0.5rem;
+        border-radius: 1rem;
+        padding: 0.2rem;
+        list-style-type: none;
+        
+    }
+    .todolist li a{
+        text-decoration: none;
+    }
+    .todolist li button a
+    {
+        color: rgb(30, 67, 98);
+        font-size: 15px;
+    }
+    .todolist li button{
+        padding: 0.2rem;
+        border: none;
+        border-radius: 0.4rem;
+        margin: 0.5rem;
+    }
+    
+
+</style>
+{% if user.todolist.all.count %}
+<div class="container-ul">
+    <h4>Your todolist: </h4>
+<ul class="todolist">
+    {% for td in user.todolist.all %}
+    <div class="listitem" style="display: flex;">
+        <li><a href="/{{td.id}}" style="color: black;">{{td.name}}</a><button><a href="{% url 'deletelist' td.id %}">Delete</a></button></li>
+    </div>
+
+    {% endfor %}
+</ul>
+</div>
+{% else %}
+
+
+<div class="no-list">
+   <h4>You currently have no list, make some <a href="/create">here</a></h4>.
+</div>
+{% endif %}
+<script src="{% static 'JS/view.js' %}"></script>
+
+<!-- <h4>{{user.todolist.all}}</h4> -->
+{% endblock %}

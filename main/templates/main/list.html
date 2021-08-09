@@ -1,0 +1,95 @@
+{% extends "main/base.html" %}
+{% load static %}
+<html>
+
+<head>
+    <title>{% block title %}List{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    {% block container %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}">
+    <style>
+        .main-container{
+            margin-left: 4rem;
+            margin-right: 2rem;
+        }
+        @media screen and (max-width:900px) {
+            .main-container{
+                margin-left: 0rem;
+                margin-right: 2rem;
+            }
+            
+        }
+        .main-container h4 {
+            background: rgb(236, 204, 236);
+            box-shadow: 2px 5px 5px violet;
+            border-radius: 2rem;
+            padding: .8rem;
+            text-align: center;
+        }
+
+        .inner-ul {
+            list-style: none;
+            background: #e2b891;
+            border-radius: 2rem;
+            box-shadow: 4px 5px 5px #CC9B6D;
+            padding: 0.4rem;
+        }
+
+        .inner-ul li {
+            background: #e6cdb6;
+            margin: 1rem;
+            border-radius: 2rem;
+            padding: 0.2rem;
+        }
+        .make-todo{
+            background: #685b50;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 2rem;
+            box-shadow: 4px 5px 5px#b1967d;
+        }
+        .make-todo input,button{
+            margin: 5px;
+            border-radius: 0.4rem;
+
+        }
+        .make-todo button{
+            border: none;
+        }
+        .make-todo button:hover{
+            box-shadow: 4px 5px 2px#b8a390;
+        }
+    </style>
+    <div class="main-container">
+        <div>
+            <h4>{{name}}</h4>
+            <form method="POST" action="#">
+                {% csrf_token %}
+
+                <div class="make-todo">
+                    <button type="submit" name="save" value="save">Save</button>
+                    <input type="text" name="new">
+                    <button types="submit" name="newItem" value="newItem">Add Item</button>
+                        </div>
+                <ul class="inner-ul">
+                    {% for item in ls.item_set.all %}
+                    {% if item.complete == True %}
+                    <li><input type="checkbox" value="clicked" name="c{{item.id}}" checked>{{item.text}}</li>
+                    {% else %}
+                    <li><input type="checkbox" value="clicked" name="c{{item.id}}">{{item.text}}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

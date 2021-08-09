@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title  %}aryan's site{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="dropdown">
+    <img src="{% static 'css/images/menu.png' %}" class="menu" >
+</div>
+<a href="/"><img class="logo" src="{% static 'css/images/logo.jpeg' %}"></a>
+    <div style="display: flex;">
+        {% if user.is_authenticated %}
+        <div class="side-nav">
+            <ul> 
+
+                <div class="tooltip">
+                    <li><a href="/"><i id="Home" class="fas fa-home tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/profile"><i id="Profile" class="fas fa-user tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/create/"><i id="Create List" class="fas fa-pencil-alt tool-hover"></i></a></li>
+                    <!-- <span class="create">Create</span> -->
+                </div>
+                <div class="tooltip">
+                    <li><a href="/view"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/notes"><i id="Notes" class="fas fa-file-pdf tool-hover"></i></a></li>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="tooltip">
+                    <li><a href="/logout"><i id="Logout" class="fas fa-sign-in-alt tool-hover"></i></a></li>
+                </div>
+                {% endif %}
+                
+            </ul>
+        </div>
+        {% else %}
+        <div class="side-nav">
+            <ul>
+                <div class="tooltip">
+                    <li><a href="/register"><i id="Signup" class="fas fa-user-plus tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/login"><i id="Login" class="fas fa-sign-in-alt tool-hover"></i></a></li>
+                </div>
+
+                <div class="tooltip">
+                    <li><a href="/"><i id="Home" class="fas fa-home tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/register"><i id="Profile" class="fas fa-user tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/register/"><i id="Create List" class="fas fa-pencil-alt tool-hover"></i></a></li>
+                    <!-- <span class="create">Create</span> -->
+                </div>
+                <div class="tooltip">
+                    <li><a href="/register"><i id="View  List" class="fas fa-clipboard-list tool-hover"></i></a></li>
+                </div>
+                <div class="tooltip">
+                    <li><a href="/notes"><i id="Notes" class="fas fa-file-pdf tool-hover"></i></a></li>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="tooltip">
+                    <li><a href="/logout"><i id="Logout" class="fas fa-sign-in-alt tool-hover"></i></a></li>
+                </div>
+                {% endif %}
+                
+                
+            </ul>
+        </div>
+        {% endif %}
+        <script src="{% static 'JS/main.js' %}"></script> 
+        {% block container %}
+
+        {% endblock %}
+    </div>
+    
+</body>
+
+</html>

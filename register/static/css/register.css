@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root{
+    --primary1:#eeeeee;
+    --primary2: #00adb5;
+    --dark-red:#630000;
+    --gray:#393e46;
+    --accent:#222831;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+
+}
+
+form{
+    font-size: 18px;
+    transform: translate(-50%,-50%);
+    background-color:rgba(214, 154, 154, 0.25);
+    padding: 1rem;
+    border-radius: 2rem;
+    
+    color: var(--accent);
+    box-shadow: 4px 4px 10px var(--gray);
+    position: absolute;
+    top:50%;
+    left: 50%;
+}
+button{
+    padding: 0.8rem;
+    font-size: 20px;
+    border-radius: 1rem;
+    display: grid;
+    margin-left:40%;
+    border: 0;
+    cursor: pointer;
+    background: rgba(223, 20, 20, 0.25);
+
+}
+@media  screen and (max-width:700px) {
+   
+    form{
+        font-size: 14px;
+        max-width: 850px;
+        max-height: 880px;
+        left: 60%;
+        overflow: scroll;
+        z-index: -4;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+    }
+    button{
+        margin-left: 25%;
+        font-size: 15px;
+    }
+  
+    
+}

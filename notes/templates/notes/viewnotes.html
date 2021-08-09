@@ -1,0 +1,74 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Create{% endblock %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% block container %}
+<style>
+    .main-container-1{
+        margin-top: 1rem;
+    }
+    ul{
+        list-style: none;
+    }
+    .notes{
+        text-decoration: none;
+        background: rgb(199, 227, 228);
+        box-shadow: 2px 5px 2px rgb(157, 229, 231);
+        padding: 0.4rem;
+        margin: 1rem;
+        border-radius: 2rem;
+        color: rgb(100, 100, 200);
+        margin: 4rem;
+
+    }
+    .note{
+        background: rgb(189, 148, 228);
+        box-shadow: 4px 5px 5px rgb(233, 185, 233);
+        margin: 1rem;
+        border-radius: 1rem;
+        padding: 0.3rem;
+        display: flex;
+        
+    }
+    .note *{
+        margin: 0.4rem;
+    }
+    .notes-dwnl{
+        color: rgb(47, 15, 47);
+        margin: 0 1rem;
+    }
+    .btn-delete{
+        font-size: 15px;
+        padding: 0.4rem;
+        border-radius: 1rem;
+        border: none;
+        margin-top: -4px;
+    }
+    .btn-delete:hover{
+        box-shadow: 2px 5px 5px thistle;
+    }
+</style>
+<link rel="stylesheet" href="{% static 'css/viewnotes.css' %}">
+<div class="main-container-1">
+    <a href="{% url 'createnote' %}" class="notes">Create Note</a>
+<h4>Notes: </h4>
+<ul>
+    <li></li>
+{% for note in user.usernotes.all %}
+<li class="note">{{note.title}}: <a href="{{note.pdf.url}}" class="notes-dwnl" download>Download</a>
+    <form action="{% url 'deletenote' note.id %}" method="POST">
+        {% csrf_token %}
+    <button class="btn-delete" type="submit">Delete</button>
+    </form>
+</li>
+
+
+
+</li>
+{% endfor %}
+</ul>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root{
+    --primary1:#eeeeee;
+    --primary2: #00adb5;
+    --dark-red:#630000;
+    --gray:#393e46;
+    --accent:#222831;
+}
+html{
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    max-height: 100vh;
+}
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+        font-size: x-large;
+}
+.side-nav{
+    width:140px;
+    max-height:140vh;
+    background:linear-gradient(120deg,#e76f51 40%,#f4a261);
+    color:white;
+    top:0;
+    left:0;
+    border-radius: 2rem;
+    margin: 8px;
+    transform: translateX(-110%);
+    transition: 0.8s ease-in-out;
+}
+
+i{
+    text-decoration: none;
+    color: white;
+    
+}
+.side-nav li{
+    list-style: none;
+    padding-right: 1.1rem;
+    margin:3rem 0rem;
+    list-style:none;
+    overflow: hidden;
+}
+.side-nav.sidenav-active{
+    transform: translateX(0%);
+    
+}
+.fa-lightbulb{
+    width: 10px;
+    font-size: 80px;
+    padding-left: -50%;
+}
+
+i{
+    padding:1rem 0rem
+}
+.tooltip{
+    position: relative;
+    padding-left: 1.4rem;
+}
+.tool-hover:hover::after{
+    content: attr(id);
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 0%;
+    right: 0;
+    left:0;
+    background:white;
+    width:auto;
+    margin-left: -34px;
+    padding: 0.8rem;
+    border-radius: 2rem 0rem 0rem 2rem;
+    color: var(--accent);
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+    transition: 8s ease;
+    opacity: 8;
+}
+.menu{
+    display: none;
+    margin-left: 1.2rem;
+    width: 10px;
+    height: 40px;
+    cursor: pointer;
+}
+.logo{
+    width:80px;
+    height: 80px;
+    padding: 2rem;
+    border-radius: 2rem;
+    position: sticky;
+    top:0%;
+    right:0%;
+    float: right;
+    cursor: pointer;
+    transform: scale(0);
+    transition: 0.4s ease-in-out;
+    transform-origin:center;
+}
+.logo-active{
+    transform: scale(1);
+}
+.name{
+    background-color: rgba(223, 141, 120, 0.4);
+    width: auto;
+    height: auto;
+    padding:1rem;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    margin-top: -20%;
+    z-index: 100;
+}
+
+
+
+@media  screen and (max-width:700px) {
+    html{
+        background-image:none;
+        background: white;
+    }
+    body{
+        font-size: 20px;
+    }
+    i{
+        padding-right:8rem;
+        
+    }
+    .side-nav li{
+       margin-left: -45%;
+    }
+    
+    .menu{
+        display: block;
+        width:30px;
+        padding: 1rem;
+        margin-bottom: 0rem;
+        height: 20px;
+        padding-left: 0;
+    }
+    .side-nav{
+        width:100px;
+        margin-top: 0%;
+        /* z-index: -1; */
+    }
+    .remove{
+        display: none;
+    }
+    .logo{
+        margin-top:-80%;
+        margin-right: -15%;
+        padding-top: -20%;
+        display: none;
+    }
+    .name{
+        margin-top: -25%;
+    }
+    .visible{
+        visibility:hidden;
+    }
+    
+}
