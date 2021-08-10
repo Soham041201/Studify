@@ -140,12 +140,6 @@ LOGOUT_REDIRECT_URL="/"
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '800230888356-o5cck5it6vg9tqt2ilhisn1qr3552qdl.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 't9u1mOVtmlmauiDJyJV5ztT6'
 
-
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'staticfiles'),
-]
-
-
 MEDIA_ROOT = "media/"
 MEDIA_URL = '/media/'
 
