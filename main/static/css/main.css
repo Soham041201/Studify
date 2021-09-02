@@ -21,7 +21,7 @@ body{
         font-size: x-large;
 }
 .side-nav{
-    width:140px;
+    width:100px;
     max-height:140vh;
     background:linear-gradient(120deg,#e76f51 40%,#f4a261);
     color:white;
